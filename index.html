@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hierarchical Fashion Design with Multi-stage Diffusion Models</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">HieraFashDiff: Hierarchical Fashion Design with Multi-stage Diffusion Models</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Anonymous submission
+            </span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/anonymous-users/HieraFashDiff/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/anonymous-users/HieraFashDiff/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Model</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/teaser_w_1.png"
+           alt="Hero Teaser Image"
+           class="teaser-image"
+           height="100%">
+      <h2 class="content has-text-justified">
+        The proposed <strong>HieraFashDiff</strong> is capable of generating fashion design drafts from just abstract 
+        concepts (blue text), 
+        and allowing for local editing on the generated draft iteratively through a few apparel attribute descriptions (red text). Thus, our 
+        method can be used to facilitate typical fashion design workflow by enabling efficient ideation and rapid iteration.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Fashion design is a challenging and complex process.
+            Recent works on fashion generation and editing are all agnostic of the actual fashion design process, which limits their usage in practice.
+            In this paper, we propose a novel hierarchical diffusion-based framework tailored for fashion design, coined as <strong>HieraFashDiff</strong>. 
+            Our model is designed to mimic the practical fashion design workflow, by unraveling the denosing process into two successive stages: 1) an ideation stage that generates design proposals given high-level concepts and 2) an iteration stage that continuously refines the proposals using low-level attributes. 
+            Our model supports fashion design generation and fine-grained local editing in a single framework. 
+            To train our model, we contribute a new dataset of full-body fashion images annotated with hierarchical text descriptions. 
+            Extensive evaluations show that, as compared to prior approaches, our method can generate fashion designs and edited results with higher fidelity and better prompt adherence, showing its promising potential to augment the practical fashion design workflow.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3">Methods</h2>
+        <img src="./static/images/framework_1.png"
+             alt="Overview Image"
+             height="100%">
+        <div class="content has-text-justified">
+        <p>
+          Overview of our method. 
+          (a) The denoising process of our model is decomposed into an ideation stage and an iteration stage, which are conditioned on high-level concepts and low-level attributes, respectively.
+          (b) our editing method starts from the generated design daft \(x^C\) and produces a sequence of edited results \((x^{A_1}, x^{A_2}, \dots)\) given text prompts for different attributes \(({A_1}, {A_2}, \dots)\).
+          (c) our UNet-based denoising network is conditioned on additional pose information.
+        </p>
+      </div>
+      </div>
+    </div>
+    
+
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <!-- <h2 class="title is-3">Design Synthesis and Editing</h2> -->
+    
+        <h2 class="title is-3">Design Draft Generation</h2>
+        <img src="./static/images/generation_1.png"
+             alt="Design Draft Generation"
+             height="100%">
+        <!-- <div class="content has-text-justified"> -->
+        <p>
+          Qualitative results of different methods for fashion draft generation from high-level design concepts.
+        </p>
+        <!-- </div> -->
+    
+        <h2 class="title is-3">Iterative Local Editing</h2>
+        <img src="./static/images/editing_1.png"
+             alt="Iterative Local Editing"
+             height="100%">
+        <div class="content has-text-justified">
+        <p>
+          Qualitative comparison of iterative local editing.
+          The latest editing methods often lack alignment with low-level attribute semantics, or cause undesirable global changes. Our method can precisely edit the corresponding regions according to the attribute descriptions while keeping the other regions unchanged, which is superior to other methods. 
+          TexFit-M refers to TexFit with our body part masks rather than its predicted ones.
+        </p>
+        </div>
+        
+      </div>
+    </div>
+
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3">More Visual Results</h2>
+        <img src="./static/images/teaser_add_1.png"
+             alt="Teaser Image"
+             height="100%">
+        <img src="./static/images/editing_add_1.png"
+        alt="Additional Editing Image"
+        height="100%">
+      </div>
+      </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+
+</body>
+</html>
